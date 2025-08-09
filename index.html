@@ -5,130 +5,361 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Michael Otieno Omondi | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ===== General Layout ===== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px 0;
+    }
+    h1, h2, h3 {
+      color: #007BFF;
+    }
+    ul { list-style: none; padding: 0; }
+    a { color: #007BFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    p { line-height: 1.6; }
+
+    /* ===== Header ===== */
+    .hero {
+      background: #007BFF;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #007BFF;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      background: #333;
+    }
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      display: inline-block;
+    }
+    .navbar a:hover {
+      background: #007BFF;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* ===== Projects ===== */
+    .project {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      border-left: 5px solid #007BFF;
+    }
+
+    /* ===== Skills ===== */
+    .skills li {
+      background: #e9ecef;
+      display: inline-block;
+      margin: 5px;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    /* ===== Contact Form ===== */
+    #contact {
+      background: #f8f9fa;
+    }
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .btn-submit {
+      background: #007BFF;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .btn-submit:hover {
+      background: #0056b3;
+    }
+    .form-status {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ===== Header ===== -->
   <header class="hero">
     <div class="container">
       <h1>MICHAEL OTIENO OMONDI</h1>
       <p>Computer Scientist | Software Developer | AI Enthusiast</p>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
     </div>
   </header>
 
+  <!-- ===== Navbar ===== -->
   <nav class="navbar">
     <div class="container">
       <a href="#summary">Summary</a>
+      <a href="#about">About Me</a>
       <a href="#contact">Contact</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#references">References</a>
     </div>
   </nav>
 
   <main class="container">
+    <!-- Summary -->
     <section id="summary">
       <h2>Professional Summary</h2>
-      <p>
-        I am a results-driven Computer Scientist with expertise in software development, web solutions, and
+      <p>I am a results-driven Computer Scientist with expertise in software development, web solutions, and
         artificial intelligence. Proficient in Python, C, Java, and web technologies such as Laravel and Django.
         I specialize in machine learning, data analysis, cybersecurity, cryptography, MySQL database
-        management, face detection systems, CCTV operation, and internet troubleshooting. I have hands-on
-        experience in both research and real-world ICT environments, including hospital-based systems. I am
-        passionate about leveraging technology to deliver innovative and practical solutions.
-      </p>
+        management, face detection systems, CCTV operation, and internet troubleshooting.</p>
     </section>
 
+    <!-- About Me -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>My journey into technology began with a fascination for how systems operate and a desire to solve
+        real-world challenges. Over the years, I’ve honed my skills in software engineering, AI, and web
+        development. Outside of coding, I enjoy problem-solving, exploring new tech, and mentoring peers.</p>
+    </section>
+
+    <!-- Contact -->
     <section id="contact">
-      <h2>Contact Information</h2>
-      <p><strong>Phone:</strong> +254 798 785 157</p>
-      <p><strong>Email:</strong> <a href="mailto:omoshmichael2000@gmail.com">omoshmichael2000@gmail.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/michael-omondi-081591260" target="_blank">michael-omondi-081591260</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/MIKE2634" target="_blank">MIKE2634</a></p>
-      <p><strong>Address:</strong> Embu, Embu, 60100</p>
+      <h2>Contact Me</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><strong>Phone:</strong> +254 798 785 157</p>
+          <p><strong>Email:</strong> <a href="mailto:omoshmichael2000@gmail.com">omoshmichael2000@gmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/michael-omondi-081591260" target="_blank">michael-omondi-081591260</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/MIKE2634" target="_blank">MIKE2634</a></p>
+          <p><strong>Address:</strong> Embu, Embu, 60100</p>
+        </div>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+          <p id="formStatus" class="form-status"></p>
+        </form>
+      </div>
     </section>
 
+    <!-- Education -->
     <section id="education">
       <h2>Education</h2>
       <ul>
-        <li><strong>Bachelor’s Degree in Computer Science (2021–2025)</strong> – University of Embu (Second Class Division)</li>
-        <li><strong>Malaria Research Program (2019–2021)</strong> – ICMR (International Centers of Excellence for Malaria Research)</li>
-        <li><strong>High School (2015–2018)</strong> – Prof. Ayiecho Obumba Secondary School – C+</li>
-        <li><strong>Primary School (2006–2014)</strong> – Kang’o Primary School – 268 marks</li>
+        <li><strong>Bachelor’s Degree in Computer Science (2021–2025)</strong> – University of Embu</li>
+        <li><strong>Certificate in Malaria Research Program (2019–2021)</strong> – ICMR</li>
+        <li><strong>High School (2015–2018)</strong> – Prof. Ayiecho Obumba Secondary School</li>
+		<li><strong>Primary School (2007–2014)</strong> – Kang'o primary school</li>
       </ul>
     </section>
 
+    <!-- Experience -->
     <section id="experience">
       <h2>Work Experience</h2>
       <h3>Attachment – ICT Department</h3>
-      <p><strong>Tenri Children Hospital, Embu (3 months)</strong></p>
+      <p><strong>Tenri Children Hospital</strong> – 3 months</p>
       <ul>
-        <li>Hands-on experience supporting hospital systems</li>
-        <li>Assisted in troubleshooting, software updates, IT support</li>
-        <li>Exposed to networking, CCTV, and information systems</li>
-      </ul>
-
-      <h3>Field Assistant</h3>
-      <p><strong>ICMR Malaria Research (2 years)</strong></p>
-      <ul>
-        <li>Data collection, fieldwork, analysis for malaria research</li>
-        <li>Collaborated with teams for accurate data handling</li>
-      </ul>
-
-      <h3>Coding Club Member</h3>
-      <p><strong>University of Embu (1 year)</strong></p>
-      <ul>
-        <li>Developed AI models and web apps in Python</li>
-        <li>Projects using Django, Laravel, JavaScript</li>
+        <li>Supported hospital ICT systems, software updates, and troubleshooting.</li>
+        <li>Maintained network security and performed regular data backups.</li>
+		<li>CCTV operations maintance and suivallnce.</li>
       </ul>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li><strong>AI-Powered Chatbot</strong> – Python + ML for customer support</li>
-        <li><strong>E-Commerce Website</strong> – Laravel-based with payment integration</li>
-        <li><strong>Malaria Data Analysis Tool</strong> – Pandas/NumPy for data visualization</li>
-        <li><strong>Timetable Scheduling System</strong> – Constraint programming in Python</li>
-        <li><strong>Car Selling Website</strong> – Django platform with advanced features</li>
-        <li><strong>Classroom Follow-Up System</strong> – Student tracking with Python</li>
-        <li><strong>Face Detection System</strong> – Python + OpenCV facial recognition</li>
-        <li><strong>Database Applications</strong> – MySQL-backed web and AI apps</li>
-      </ul>
-    </section>
+           <div class="project">
+        <h3>Timetable schedular with teachers preference</h3>
+        <p>Uses techers preference i.e the day they are available and generate an institutional Timetable.<br>
+		<strong>Tech stack:</strong> Python, contraint, tktinker ui. 
+        <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
+		</p>
+      </div>
+      <div class="project">
+        <h3>Hospital Management Web App</h3>
+        <p>Laravel + MySQL application for managing patient records and appointments.<BR>
+         <strong>Tech stack:</strong> HLTML, JavaScript, Laravel. 
+        <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>		
+		</p>
+      </div>
+	  <div class="project">
+    <h3>AI-Powered Chatbot</h3>
+    <p>
+      Built using Python and machine learning libraries to assist in automated customer support. <br>
+      <strong>Tech stack:</strong> Python, NLTK, Flask. 
+      <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
+    </p>
+  </div>
 
+  <div class="project">
+    <h3>E-Commerce Website</h3>
+    <p>
+      Laravel-based platform with integrated payment gateways for seamless transactions.<br>
+      <strong>Tech stack:</strong> Laravel, MySQL, Bootstrap. 
+      <a href="#">View on GitHub</a>
+    </p>
+  </div>
+
+  <div class="project">
+    <h3>Malaria Data Analysis Tool</h3>
+    <p>
+      Data visualization tool for malaria research analytics.<br>
+      <strong>Tech stack:</strong> Python, Pandas, Matplotlib. 
+      <a href="#">View on GitHub</a>
+    </p>
+  </div>
+
+    </section>
+	
+
+    <!-- Skills -->
     <section id="skills">
       <h2>Skills</h2>
       <ul class="skills">
-        <li>Python</li>
-        <li>C</li>
-        <li>Java</li>
-        <li>HTML/CSS/JavaScript</li>
-        <li>Laravel</li>
-        <li>Django</li>
-        <li>MySQL</li>
-        <li>Machine Learning</li>
-        <li>Pandas / NumPy</li>
-        <li>Cryptography</li>
-        <li>Face Detection</li>
-        <li>CCTV Operation</li>
-        <li>Networking & IT Support</li>
-        <li>System Maintenance</li>
+        <li>Python</li><li>Java</li><li>C</li><li>Laravel</li><li>Django</li>
+        <li>Machine Learning</li><li>MySQL</li><li>Cybersecurity</li><li>HTML/CSS/JS</li>
       </ul>
     </section>
 
+    <!-- Achievements -->
+    <section id="achievements">
+      <h2>Achievements & Certifications</h2>
+      <ul>
+       
+        <li>Artificial intelligence  – IBM (2025)</li>
+        <li>ICT Support Recognition Award – Tenri Hospital (2024)</li>
+		<li>Certificate in Machine Learning – Coursera (2024)</li>
+      </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <blockquote>
+        "Michael is a highly dedicated and skilled developer."  
+        <cite> – William Mugo, ICT Officer</cite>
+      </blockquote>
+      
+    </section>
+
+    <!-- References -->
     <section id="references">
       <h2>References</h2>
       <ul>
-        <li><strong>William Mugo</strong> – HOD ICT, Tenri Children Hospital, 📞 +254 725 846 304</li>
-        <li><strong>Charles Ondere</strong> – Doctor, Aghakan Hospital Mombasa, 📞 +254 790 522 575</li>
-        <li><strong>Joseph Minati</strong> – Doctor, Jaramogi Hospital Kisumu, 📞 +254 715 895 154</li>
+        <li><strong>William Mugo</strong> – ICT Officer, Tenri Children Hospital – Tel: +254 700 111 222</li>
+        <li><strong>Charles Ondere</strong> – Doctor, Aghakan Hospital Mombasa -Tel: +254 790 522 575</li>
+        <li><strong>Joseph Minati</strong> – Doctor, Jaramogi Hospital Kisumu, - Tel: +254 715 895 154</li>
       </ul>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Michael Otieno Omondi. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let message = document.getElementById("message").value.trim();
+      let status = document.getElementById("formStatus");
+
+      if (!name || !email || !message) {
+        status.style.color = "red";
+        status.textContent = "Please fill in all fields.";
+        return;
+      }
+      status.style.color = "green";
+      status.textContent = "✅ Message sent successfully!";
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+
 </body>
 </html>
