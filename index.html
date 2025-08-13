@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Michael Otieno Omondi | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
 
   <style>
     /* ===== General Layout ===== */
@@ -28,7 +27,7 @@
     a:hover { text-decoration: underline; }
     p { line-height: 1.6; }
 
-    /* ===== Header ===== */
+    /* ===== Hero Section ===== */
     .hero {
       background: #007BFF;
       color: white;
@@ -89,57 +88,6 @@
       border-radius: 4px;
     }
 
-    /* ===== Contact Form ===== */
-    #contact {
-      background: #f8f9fa;
-    }
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 6px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-    input:focus, textarea:focus {
-      border-color: #007BFF;
-      outline: none;
-    }
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    .btn-submit {
-      background: #007BFF;
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
-    .btn-submit:hover {
-      background: #0056b3;
-    }
-    .form-status {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
     /* ===== Footer ===== */
     footer {
       background: #333;
@@ -152,7 +100,7 @@
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
+  <!-- ===== Hero Section ===== -->
   <header class="hero">
     <div class="container">
       <h1>MICHAEL OTIENO OMONDI</h1>
@@ -182,7 +130,7 @@
     <section id="summary">
       <h2>Professional Summary</h2>
       <p>I am a results-driven Computer Scientist with expertise in software development, web solutions, and
-        artificial intelligence. Proficient in Python, C, Java, and web technologies such as Laravel and Django.
+        artificial intelligence. Proficient in Python, C, Java, and web technologies such as Laravel, Django, and WordPress.
         I specialize in machine learning, data analysis, cybersecurity, cryptography, MySQL database
         management, face detection systems, CCTV operation, and internet troubleshooting.</p>
     </section>
@@ -206,22 +154,6 @@
           <p><strong>GitHub:</strong> <a href="https://github.com/MIKE2634" target="_blank">MIKE2634</a></p>
           <p><strong>Address:</strong> Embu, Embu, 60100</p>
         </div>
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Send Message</button>
-          <p id="formStatus" class="form-status"></p>
-        </form>
       </div>
     </section>
 
@@ -232,7 +164,7 @@
         <li><strong>Bachelor’s Degree in Computer Science (2021–2025)</strong> – University of Embu</li>
         <li><strong>Certificate in Malaria Research Program (2019–2021)</strong> – ICMR</li>
         <li><strong>High School (2015–2018)</strong> – Prof. Ayiecho Obumba Secondary School</li>
-		<li><strong>Primary School (2007–2014)</strong> – Kang'o primary school</li>
+        <li><strong>Primary School (2007–2014)</strong> – Kang'o Primary School</li>
       </ul>
     </section>
 
@@ -244,63 +176,66 @@
       <ul>
         <li>Supported hospital ICT systems, software updates, and troubleshooting.</li>
         <li>Maintained network security and performed regular data backups.</li>
-		<li>CCTV operations maintance and suivallnce.</li>
+        <li>CCTV operations maintenance and surveillance.</li>
       </ul>
     </section>
 
     <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-           <div class="project">
-        <h3>Timetable schedular with teachers preference</h3>
-        <p>Uses techers preference i.e the day they are available and generate an institutional Timetable.<br>
-		<strong>Tech stack:</strong> Python, contraint, tktinker ui. 
-        <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
-		</p>
+      <div class="project">
+        <h3>Timetable Scheduler with Teachers' Preference</h3>
+        <p>Generates institutional timetables based on teachers’ availability.<br>
+          <strong>Tech stack:</strong> Python, Constraint Solver, Tkinter (UI).  
+          <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
+        </p>
       </div>
       <div class="project">
         <h3>Hospital Management Web App</h3>
-        <p>Laravel + MySQL application for managing patient records and appointments.<BR>
-         <strong>Tech stack:</strong> HLTML, JavaScript, Laravel. 
-        <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>		
-		</p>
+        <p>Web-based platform for managing patient records and appointments.<br>
+          <strong>Tech stack:</strong> Laravel, MySQL, HTML, CSS, JavaScript.  
+          <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
+        </p>
       </div>
-	  <div class="project">
-    <h3>AI-Powered Chatbot</h3>
-    <p>
-      Built using Python and machine learning libraries to assist in automated customer support. <br>
-      <strong>Tech stack:</strong> Python, NLTK, Flask. 
-      <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>E-Commerce Website</h3>
-    <p>
-      Laravel-based platform with integrated payment gateways for seamless transactions.<br>
-      <strong>Tech stack:</strong> Laravel, MySQL, Bootstrap. 
-      <a href="#">View on GitHub</a>
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>Malaria Data Analysis Tool</h3>
-    <p>
-      Data visualization tool for malaria research analytics.<br>
-      <strong>Tech stack:</strong> Python, Pandas, Matplotlib. 
-      <a href="#">View on GitHub</a>
-    </p>
-  </div>
-
+      <div class="project">
+        <h3>AI-Powered Chatbot</h3>
+        <p>Built using Python and NLP libraries to automate customer support.<br>
+          <strong>Tech stack:</strong> Python, NLTK, Flask.  
+          <a href="#">View on GitHub</a> | <a href="#">Live Demo</a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>E-Commerce Website</h3>
+        <p>Laravel-based platform with integrated payment gateways.<br>
+          <strong>Tech stack:</strong> Laravel, MySQL, Bootstrap, JavaScript.  
+          <a href="#">View on GitHub</a>
+        </p>
+      </div>
+      <div class="project">
+        <h3>Malaria Data Analysis Tool</h3>
+        <p>Data visualization tool for malaria research analytics.<br>
+          <strong>Tech stack:</strong> Python, Pandas, Matplotlib.  
+          <a href="#">View on GitHub</a>
+        </p>
+      </div>
     </section>
-	
 
     <!-- Skills -->
     <section id="skills">
       <h2>Skills</h2>
       <ul class="skills">
-        <li>Python</li><li>Java</li><li>C</li><li>Laravel</li><li>Django</li>
-        <li>Machine Learning</li><li>MySQL</li><li>Cybersecurity</li><li>HTML/CSS/JS</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>C</li>
+        <li>Laravel</li>
+        <li>Django</li>
+        <li>WordPress</li>
+        <li>Machine Learning</li>
+        <li>MySQL</li>
+        <li>Cybersecurity</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
       </ul>
     </section>
 
@@ -308,10 +243,9 @@
     <section id="achievements">
       <h2>Achievements & Certifications</h2>
       <ul>
-       
-        <li>Artificial intelligence  – IBM (2025)</li>
+        <li>Artificial Intelligence – IBM (2025)</li>
         <li>ICT Support Recognition Award – Tenri Hospital (2024)</li>
-		<li>Certificate in Machine Learning – Coursera (2024)</li>
+        <li>Certificate in Machine Learning – Coursera (2024)</li>
       </ul>
     </section>
 
@@ -322,7 +256,6 @@
         "Michael is a highly dedicated and skilled developer."  
         <cite> – William Mugo, ICT Officer</cite>
       </blockquote>
-      
     </section>
 
     <!-- References -->
@@ -340,26 +273,6 @@
   <footer>
     <p>© 2025 Michael Otieno Omondi. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let name = document.getElementById("name").value.trim();
-      let email = document.getElementById("email").value.trim();
-      let message = document.getElementById("message").value.trim();
-      let status = document.getElementById("formStatus");
-
-      if (!name || !email || !message) {
-        status.style.color = "red";
-        status.textContent = "Please fill in all fields.";
-        return;
-      }
-      status.style.color = "green";
-      status.textContent = "✅ Message sent successfully!";
-      document.getElementById("contactForm").reset();
-    });
-  </script>
 
 </body>
 </html>
