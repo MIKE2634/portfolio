@@ -421,20 +421,87 @@
       transform: translateY(-5px);
     }
     
-    .contact-cta {
+    /* ===== Contact Form Styles ===== */
+    .contact-form-container {
       background-color: white;
       border-radius: 10px;
       padding: 40px;
       box-shadow: var(--shadow);
+    }
+    
+    .contact-form-container h3 {
+      margin-bottom: 20px;
       text-align: center;
     }
     
-    .contact-cta h3 {
-      margin-bottom: 20px;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
     
-    .contact-cta p {
-      margin-bottom: 25px;
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .form-status {
+      padding: 12px;
+      border-radius: 5px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+    
+    .form-status.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+    
+    .form-status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+    
+    .form-note {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--secondary);
     }
     
     /* ===== Footer ===== */
@@ -528,6 +595,10 @@
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
+      
+      .contact-form-container {
+        padding: 30px 20px;
+      }
     }
     
     @media (max-width: 576px) {
@@ -541,10 +612,6 @@
       
       section {
         padding: 60px 0;
-      }
-      
-      .contact-cta {
-        padding: 30px 20px;
       }
     }
   </style>
@@ -564,7 +631,7 @@
       </div>
       
       <div class="logo">
-        Michael<span> Omondi</span>
+        Michael<span>Omondi</span>
       </div>
       
       <div class="mobile-menu-btn">
@@ -596,7 +663,7 @@
           <p>I am a results-driven Computer Scientist with expertise in software development, web solutions, and artificial intelligence. Proficient in Python, C, Java, and web technologies such as Laravel, and WordPress.</p>
           <p>I specialize in web design and development, machine learning, MySQL database management, face detection systems, CCTV operation, and internet troubleshooting.</p>
           <p>My journey into technology began with a fascination for how systems operate and a desire to solve real-world challenges. Over the years, I've honed my skills in software engineering, AI, and web development.</p>
-          <a href="michaels.pdf" class="btn" download style="margin-top: 20px;">Download Resume</a>
+          <a href="The resume.pdf" class="btn" download style="margin-top: 20px;">Download Resume</a>
         </div>
         <div class="about-img">
           <img src="michael.jpeg" alt="Michael Otieno Omondi">
@@ -862,17 +929,47 @@
           </div>
         </div>
         
-        <div class="contact-cta">
-          <h3>Ready to Start a Project?</h3>
-          <p>I'm currently available for freelance work and full-time opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-			<a href="mailto:omoshmichael2000@gmail.com?subject=Portfolio Inquiry&body=Hello Michael,%0D%0A%0D%0AI saw your portfolio and would like to discuss..." class="btn">
-  <i class="fas fa-paper-plane"></i> Send Email
-</a>
-         
-          </a>
-          <p style="margin-top: 20px; font-size: 0.9rem; color: var(--secondary);">
-            <i class="fas fa-info-circle"></i> Clicking will open your email client
-          </p>
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <h3>Send Me a Message</h3>
+          <form id="contactForm" class="contact-form" action="https://formspree.io/f/your-form-id-here" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="_replyto" class="form-control" placeholder="Enter your email address" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="_subject" class="form-control" placeholder="Message subject" value="Portfolio Inquiry">
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Enter your message here..." required></textarea>
+            </div>
+            
+            <!-- Formspree honeypot (anti-spam) -->
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <!-- Status Message -->
+            <div id="formStatus" class="form-status"></div>
+            
+            <button type="submit" class="btn" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+          
+          <div class="form-note">
+            <p><i class="fas fa-info-circle"></i> Using Formspree for reliable email delivery. Works on all devices.</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">
+              <strong>Note:</strong> "https://formspree.io/f/mvgebadn">
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -883,7 +980,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          Michael<span> Omondi</span>
+          Michael<span>Omondi</span>
         </div>
         <p>Computer Scientist | Software Developer | AI Enthusiast</p>
         <div class="social-links">
@@ -971,8 +1068,66 @@
         }
       });
     });
+    
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Disable submit button
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        try {
+          const formData = new FormData(this);
+          
+          // If you're not using Formspree, you can replace this with your own endpoint
+          const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Success
+            formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+            formStatus.className = 'form-status success';
+            contactForm.reset();
+          } else {
+            // Error from Formspree
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          // Network error or Formspree error
+          formStatus.textContent = 'Oops! There was a problem sending your message. Please try again or email me directly at omoshmichael2000@gmail.com';
+          formStatus.className = 'form-status error';
+        } finally {
+          // Re-enable submit button
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          
+          // Auto-hide status message after 10 seconds
+          setTimeout(() => {
+            formStatus.style.display = 'none';
+          }, 10000);
+        }
+      });
+    }
+    
+    // Email fallback for mailto links
+    document.querySelectorAll('a[href^="mailto"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Allow default behavior for mailto links
+        // The form is now the primary contact method
+      });
+    });
   </script>
 </body>
 </html>
-
-
