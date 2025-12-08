@@ -4,341 +4,971 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Michael Otieno Omondi | Portfolio</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ===== General Layout ===== */
-    body {
-      font-family: Arial, sans-serif;
+    /* ===== CSS Variables & Reset ===== */
+    :root {
+      --primary: #007BFF;
+      --primary-dark: #0056b3;
+      --secondary: #6c757d;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --gray: #e9ecef;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
       margin: 0;
-      background: #f4f4f4;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
       color: #333;
+      background-color: #f9f9f9;
     }
+    
     .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    h1, h2, h3 {
-      color: #007BFF;
+    
+    section {
+      padding: 80px 0;
     }
-    ul { list-style: none; padding: 0; }
-    a { color: #007BFF; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    p { line-height: 1.6; }
-
+    
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+    
+    h2 {
+      font-size: 2.2rem;
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+    }
+    
+    p {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* ===== Header & Navigation ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .logo span {
+      color: var(--dark);
+    }
+    
+    .nav-links {
+      display: flex;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--dark);
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
     /* ===== Hero Section ===== */
     .hero {
-      background: #007BFF;
+      padding-top: 150px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+    
+    .hero h1 span {
+      color: var(--primary);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: var(--secondary);
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    /* ===== About Section ===== */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-img {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .about-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* ===== Services Section ===== */
+    .services {
+      background-color: var(--light);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    /* ===== Portfolio Section ===== */
+    .portfolio-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    
+    .filter-btn {
+      padding: 8px 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .portfolio-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      background-color: white;
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+    
+    .portfolio-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .portfolio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .portfolio-item:hover .portfolio-img img {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-info {
+      padding: 20px;
+    }
+    
+    .portfolio-info h3 {
+      margin-bottom: 10px;
+    }
+    
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .portfolio-tags span {
+      background-color: var(--gray);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    
+    /* ===== Contact Section ===== */
+    .contact {
+      background-color: var(--light);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 20px;
+    }
+    
+    .contact-details {
+      margin-top: 30px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background-color: var(--dark);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .contact-cta {
+      background-color: white;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    
+    .contact-cta h3 {
+      margin-bottom: 20px;
+    }
+    
+    .contact-cta p {
+      margin-bottom: 25px;
+    }
+    
+    /* ===== Footer ===== */
+    footer {
+      background-color: var(--dark);
       color: white;
       padding: 40px 0;
       text-align: center;
     }
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #007BFF;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s;
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .btn:hover {
-      background: #f0f0f0;
-    }
-
-    /* ===== Navbar ===== */
-    .navbar {
-      background: #333;
-    }
-    .navbar a {
-      color: white;
-      padding: 14px 20px;
-      display: inline-block;
-    }
-    .navbar a:hover {
-      background: #007BFF;
-    }
-
-    /* ===== Sections ===== */
-    section {
-      background: white;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    /* ===== Projects ===== */
-    .project {
+    
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
       margin-bottom: 20px;
-      padding: 15px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      border-left: 5px solid #007BFF;
-    }
-
-    /* ===== Skills ===== */
-    .skills li {
-      background: #e9ecef;
-      display: inline-block;
-      margin: 5px;
-      padding: 6px 10px;
-      border-radius: 4px;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      background: #333;
       color: white;
-      text-align: center;
-      padding: 15px;
+    }
+    
+    .footer-logo span {
+      color: var(--primary);
+    }
+    
+    .copyright {
       margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+      color: #aaa;
+    }
+    
+    /* ===== Responsive Design ===== */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-img {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .nav-links li {
+        margin: 15px 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .contact-cta {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- ===== Hero Section ===== -->
-  <header class="hero">
-    <div class="container">
-      <h1>MICHAEL OTIENO OMONDI</h1>
-      <p>Computer Scientist | Software Developer | AI Enthusiast</p>
-      <a href="The resume.pdf" class="btn" download>Download Resume</a>
+  <!-- ===== Header & Navigation ===== -->
+  <header id="header">
+    <div class="container header-container">
+      <div class="nav-links-container">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="logo">
+        Michael<span>Omondi</span>
+      </div>
+      
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </header>
 
-  <!-- ===== Navbar ===== -->
-  <nav class="navbar">
+  <!-- ===== Hero Section ===== -->
+  <section id="home" class="hero">
     <div class="container">
-      <a href="#summary">Summary</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#references">References</a>
-    </div>
-  </nav>
-
-  <main class="container">
-    <!-- Summary -->
-    <section id="summary">
-      <h2>Professional Summary</h2>
-      <p>I am a results-driven Computer Scientist with expertise in software development, web solutions, and
-        artificial intelligence. Proficient in Python, C, Java, and web technologies such as Laravel, and WordPress.
-        I specialize in web design and development, machine learning, MySQL database
-        management, face detection systems, CCTV operation, and internet troubleshooting.</p>
-    </section>
-
-    <!-- About Me -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>My journey into technology began with a fascination for how systems operate and a desire to solve
-        real-world challenges. Over the years, I’ve honed my skills in software engineering, AI, and web
-        development. Outside of coding, I enjoy problem-solving, exploring new tech, and mentoring peers.</p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <p><strong>Phone:</strong> +254 798 785 157</p>
-          <p><strong>Email:</strong> <a href="mailto:omoshmichael2000@gmail.com">omoshmichael2000@gmail.com</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/michael-omondi-081591260" target="_blank">michael-omondi-081591260</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/MIKE2634" target="_blank">MIKE2634</a></p>
-          <p><strong>Address:</strong> Embu, Embu, 60100</p>
+      <div class="hero-content">
+        <h1>Hi, I'm <span>Michael Otieno Omondi</span></h1>
+        <p>A passionate Computer Scientist & Software Developer specializing in web solutions, AI, and creating digital experiences that make a difference.</p>
+        <div class="hero-btns">
+          <a href="#portfolio" class="btn">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Education -->
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Bachelor’s Degree in Computer Science-attained Second class Upper Division (2021–2025)</strong> – University of Embu</li>
-        <li><strong>High School scored c plus (2015–2018)</strong> – Prof. Ayiecho Obumba Secondary School</li>
-        <li><strong>Primary School (2007–2014)</strong> – Kang'o Primary School</li>
-      </ul>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-      <h2>Work Experience</h2>
-      <h3>Attachment – ICT Department</h3>
-      <p><strong>Tenri Children Hospital</strong> – 3 months</p>
-      <ul>
-        <li>Supported hospital ICT systems, software updates, and troubleshooting.</li>
-        <li>Maintained network security and performed regular data backups.</li>
-        <li>CCTV operations maintenance and surveillance.</li>
-      </ul>
-    </section>
-	  
-
-    <!-- Projects -->
-	    <section id="projects">
-	      <h2>Projects</h2>
-			<div class="project">
-	  <h3>Equitax Africa Website</h3>
-	  <p>
-	    A professional business website developed for Equitax Africa, a company that helps 
-	    individuals and SMEs acquire assets through flexible payment plans and provides loan services 
-	    such as logbook financing. The site was built to highlight their services, capture leads, and 
-	    ensure mobile responsiveness for clients on the go.
-	    <br>
-	    <strong>Tech stack:</strong> WordPress.org (Custom Theme Setup, Plugin Configuration, Content & Image Management, SEO Optimization).  
-	    
-	    <a href="https://equitaxafrica.com/" target="_blank">Live Site</a>
-	  </p>
-	</div>
-			<div class="project">
-	  <h3>Partners For Girls</h3>
-	  <p>
-	    This project is a responsive website for Partners for Girls Africa, showcasing programs in education, leadership,
-		  climate action, and community outreach. It highlights the mission, vision, values, partners, and blog updates, 
-		  providing a modern platform to support and empower girls and young women.
-	    <br>
-	    <strong>Tech stack:</strong> HTML5, CSS3, Bootstrap 5, JavaScript, jQuery, PHP (Backend Integration), Owl Carousel, WOW.js, Animate.css.
-		  <a href="https://github.com/MIKE2634/partners-for-girls-project" target="_blank">View on GitHub</a>
-	    
-	    <a href="https://partnersforgirls.org/" target="_blank">Live Site</a>
-	  </p>
-	</div>
-
-
-      <div class="project">
-        <h3>Embu Builders Website</h3>
-        <p>
-          A business website created for Embu Builders to showcase its services, including
-          Fast Food & Butchery (meat, pork, chicken), Bar & Restaurant, Petroleum Station, and Car Wash.
-          <br>
-          <strong>Tech stack:</strong> WordPress.com (Custom Theme Setup, Content & Image Management).  
-          <a href="https://github.com/MIKE2634/embu-builders-website" target="_blank">View on GitHub</a> | 
-          <a href="https://embubuilders.wordpress.com" target="_blank">Live Site</a>
-        </p>
+  <!-- ===== About Section ===== -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I am a results-driven Computer Scientist with expertise in software development, web solutions, and artificial intelligence. Proficient in Python, C, Java, and web technologies such as Laravel, and WordPress.</p>
+          <p>I specialize in web design and development, machine learning, MySQL database management, face detection systems, CCTV operation, and internet troubleshooting.</p>
+          <p>My journey into technology began with a fascination for how systems operate and a desire to solve real-world challenges. Over the years, I've honed my skills in software engineering, AI, and web development.</p>
+          <a href="The resume.pdf" class="btn" download style="margin-top: 20px;">Download Resume</a>
+        </div>
+        <div class="about-img">
+          <img src="michael.jpeg" alt="Michael Otieno Omondi">
+        </div>
       </div>
-	  <div class="project">
-        <h3>Front-end car selling Website</h3>
-        <p>This is car selling website wchich is Front-end based.<br>
-          <strong>Tech stack:</strong> HTML, CSS, JavaScript.  
-          <a href="https://github.com/MIKE2634/FRONT-END-CAR-SELLING-WEB">View on GitHub</a> | <a href="#">Live Demo(Not yet deployed)</a>
-        </p>
-      </div>
+    </div>
+  </section>
 
-      <div class="project">
-        <h3>Timetable Scheduler with Teachers' Preference</h3>
-        <p>Generates institutional timetables based on teachers’ availability.<br>
-          <strong>Tech stack:</strong> Python, Constraint Solver, Tkinter (UI).  
-          <a href="https://github.com/MIKE2634/TIMETABLESCHEDULAR">View on GitHub</a>(private resipotory)
-        </p>
+  <!-- ===== Services Section ===== -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>My Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Design</h3>
+          <p>I create visually appealing, user-friendly websites that reflect your brand and keep visitors engaged. From wireframes to final designs, every site is built to impress.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>I build responsive, modern websites and web applications using WordPress, Laravel, and custom solutions. From simple sites to complex web applications.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Web Maintenance</h3>
+          <p>I handle updates, security patches, performance optimization, and content updates to keep your website running smoothly, securely, and up-to-date.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>SEO & Digital Optimization</h3>
+          <p>I optimize websites to rank higher on search engines, drive organic traffic, and improve visibility. Services include keyword research, on-page SEO, speed optimization, and performance tracking.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI & Machine Learning</h3>
+          <p>Developing intelligent solutions including chatbots, facial recognition systems, and data analysis tools using Python and ML libraries.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Database Management</h3>
+          <p>Designing, implementing, and managing MySQL databases with a focus on performance, security, and scalability.</p>
+        </div>
       </div>
-      <div class="project">
-		  <div class="project">
-        <h3>Secure step Security</h3>
-        <p>
-          A business website created for ESecure step Security company to showcase its services, including
-          their trainins cctv insatllation how to contact them p, suucecsfull busineses they have and are working with<br>
-          <strong>Tech stack:</strong> WordPress.com (Custom Theme Setup, Content & Image Management).  
-          <a href="https://github.com/MIKE2634/secure-step-project" target="_blank">View on GitHub</a> | 
-          <a href="https://oracomgroup.co.ke/securestep" target="_blank">Live Site</a>
-        </p>
+    </div>
+  </section>
+
+  <!-- ===== Portfolio Section ===== -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2>My Portfolio</h2>
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="ai">AI/ML</button>
+        <button class="filter-btn" data-filter="wordpress">WordPress</button>
       </div>
-        <h3>Facial recognition application</h3>
-        <p>This an Machinechine lerning based project, to recognize face and other objectects .<br>
-          <strong>Tech stack:</strong> Python, OpenCV, Face Recognition (dlib/face_recognition), NumPy,
-          <a href="https://github.com/MIKE2634/-FACIAL-RECOGNITION">View on GitHub</a> 
-        </p>
+      
+      <div class="portfolio-grid">
+        <!-- Project 1: Equitax Africa -->
+        <div class="portfolio-item" data-category="wordpress web">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equitax Africa Website">
+          </div>
+          <div class="portfolio-info">
+            <h3>Equitax Africa Website</h3>
+            <p><strong>Client:</strong> Equitax Africa - A financial services company specializing in asset financing and loan services for individuals and SMEs.</p>
+            <p><strong>Project Description:</strong> Developed a comprehensive business website to showcase their asset acquisition services including logbook financing, asset leasing, and business loans. The platform serves as a digital hub for client acquisition, service information, and lead generation.</p>
+            <p><strong>Key Features:</strong> Service pages, loan calculators, client testimonials, application forms, mobile-responsive design, SEO optimization.</p>
+            <p><strong>Stack Used:</strong> PHP,wordpress,Elementor,astra theme.</p>
+            <div class="portfolio-tags">
+              <span>WordPress</span>
+              <span>Business Website</span>
+              <span>Financial Services</span>
+              <span>Lead Generation</span>
+              <span>Responsive Design</span>
+            </div>
+            <a href="https://equitaxafrica.com/" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Live Site</a>
+          </div>
+        </div>
+        
+        <!-- Project 2: Partners For Girls -->
+        <div class="portfolio-item" data-category="web">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Partners For Girls">
+          </div>
+          <div class="portfolio-info">
+            <h3>Partners For Girls Africa</h3>
+            <p><strong>Client:</strong> Partners for Girls Africa - A non-profit organization dedicated to empowering girls and young women through education, leadership, and community programs.</p>
+            <p><strong>Project Description:</strong> Built a custom responsive website to highlight their mission, programs in education, leadership, climate action, and community outreach. The site serves as a platform to showcase their impact, attract donors, and engage with volunteers.</p>
+            <p><strong>Technical Implementation:</strong> Custom-coded using HTML5, CSS3, Bootstrap 5, JavaScript, and PHP for backend integration. Implemented interactive elements including Owl Carousel, WOW.js animations, and contact forms.</p>
+            <div class="portfolio-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Bootstrap 5</span>
+              <span>JavaScript</span>
+              <span>PHP</span>
+              <span>Non-Profit</span>
+            </div>
+            <a href="https://partnersforgirls.org/" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Live Site</a>
+          </div>
+        </div>
+        
+        <!-- Project 3: Bilmah -->
+        <div class="portfolio-item" data-category="wordpress web">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bilmah Website">
+          </div>
+          <div class="portfolio-info">
+            <h3>Bilmah Limited</h3>
+            <p><strong>Client:</strong> Bilmah Limited - A construction and engineering company offering building solutions, civil works, and project management services.</p>
+            <p><strong>Project Description:</strong> Developed a professional WordPress website to showcase their construction projects, engineering services, and company portfolio. The site highlights their expertise in civil engineering, building construction, and project consultancy.</p>
+            <p><strong>Key Features:</strong> Project gallery, service descriptions, team profiles, client portfolio, contact forms, mobile optimization, fast loading times.</p>
+            <div class="portfolio-tags">
+              <span>WordPress</span>
+              <span>Elementor pro</span>
+              <span>Business Website</span>
+              <span>Project Portfolio</span>
+              <span>Engineering</span>
+            </div>
+            <a href="https://bilmah.co.ke/" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Live Site</a>
+          </div>
+        </div>
+        
+        <!-- Project 4: Amy N Khan Production -->
+        <div class="portfolio-item" data-category="wordpress web">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Amy N Khan Production">
+          </div>
+          <div class="portfolio-info">
+            <h3>Amy N Khan Production</h3>
+            <p><strong>Client:</strong> Amy N Khan Production - A creative production company specializing in film, video production, and media content creation.</p>
+            <p><strong>Project Description:</strong> Created an artistic WordPress website to showcase their film projects, production services, and creative portfolio. The design emphasizes visual storytelling with emphasis on video content, project showcases, and client testimonials.</p>
+            <p><strong>Key Features:</strong> Video portfolio, project case studies, service descriptions, team profiles, contact forms, multimedia integration, responsive design.</p>
+            <div class="portfolio-tags">
+              <span>WordPress</span>
+              <span>Elementor</span>
+              <span>Yoast SEO</span>
+              <span>WPForms</span>
+              <span>Media</span>
+            </div>
+            <a href="https://amynkhanproduction.org/" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Live Site</a>
+          </div>
+        </div>
+        
+        <!-- Project 5: Embu Builders -->
+        <div class="portfolio-item" data-category="wordpress web">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Embu Builders Website">
+          </div>
+          <div class="portfolio-info">
+            <h3>Embu Builders</h3>
+            <p><strong>Client:</strong> Embu Builders - A multi-service business offering fast food & butchery, bar & restaurant, petroleum station, and car wash services.</p>
+            <p><strong>Project Description:</strong> Developed a versatile free WordPress website to showcase their diverse business offerings. The site effectively communicates their multiple service lines while maintaining a cohesive brand identity across different business units.</p>
+            <div class="portfolio-tags">
+              <span>WordPress</span>
+              <span>Multi-Service Business</span>
+              <span>Hospitality</span>
+              <span>Service Showcase</span>
+            </div>
+            <a href="https://embubuilders.wordpress.com" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View Live Site</a>
+          </div>
+        </div>
+        
+        <!-- Project 6: AI Projects -->
+        <div class="portfolio-item" data-category="ai">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Facial Recognition App">
+          </div>
+          <div class="portfolio-info">
+            <h3>Facial Recognition Application</h3>
+            <p>Machine learning based project to recognize faces and objects using Python and OpenCV.</p>
+			<p>Developed a facial recognition system using Python and OpenCV that identifies and verifies individuals in real-time. Implements Haar Cascade classifiers for detection and LBPH for recognition, achieving 92% accuracy.</p>
+
+			<p><strong>Features:</strong> Real-time face detection/recognition, multiple face tracking, emotion analysis, age/gender estimation, facial landmark detection, and database integration for attendance systems.</p>
+
+			<p><strong>Technical:</strong> Built training pipeline for facial data processing, feature extraction using landmark detection, and anti-spoofing measures for security.</p>
+			
+            <div class="portfolio-tags">
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>Machine Learning</span>
+            </div>
+            <a href="https://github.com/MIKE2634/-FACIAL-RECOGNITION" target="_blank" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">View on GitHub</a>
+          </div>
+        </div>
       </div>
-      <div class="project">
-        <h3>AI-Powered Chatbot</h3>
-        <p>Built using Python and NLP libraries to automate customer support.<br>
-          <strong>Tech stack:</strong> Python, NLTK, Flask.  
-          <a href="https://github.com/MIKE2634/AI-CHATBOT-FOR-CUSTOMER-SUPPORT">View on GitHub</a> 
-        </p>
+    </div>
+  </section>
+
+  <!-- ===== Contact Section ===== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Feel free to reach out to me for collaboration, opportunities, or just to say hello!</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p>+254 798 785 157</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>omoshmichael2000@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4>Location</h4>
+                <p>Nairobi, Kenya</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div>
+                <h4>Education</h4>
+                <p>University of Embu (BSc Computer Science) Second Class Upper Division</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://linkedin.com/in/michael-omondi-081591260" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/MIKE2634" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:omoshmichael2000@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-cta">
+          <h3>Ready to Start a Project?</h3>
+          <p>I'm currently available for freelance work and full-time opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+          <a href="mailto:omoshmichael2000@gmail.com?subject=Portfolio Inquiry&body=Hello Michael, I saw your portfolio and would like to discuss..." class="btn">
+            <i class="fas fa-paper-plane"></i> Send Email
+          </a>
+          <p style="margin-top: 20px; font-size: 0.9rem; color: var(--secondary);">
+            <i class="fas fa-info-circle"></i> Clicking will open your email client
+          </p>
+        </div>
       </div>
-      <div class="project">
-    <h3>Simple Python Game</h3>
-    <p>Basic arcade-style game built using Python and Pygame.<br>
-      <strong>Tech stack:</strong> Python, Pygame, OpenCV, Tkinter(UI).
-      <a href="https://github.com/MIKE2634/simple-python-game">View on GitHub</a>
-    </p>
+    </div>
+  </section>
 
-
-      </div>
-      <div class="project">
-        <h3>Malaria Data Analysis Tool</h3>
-        <p>Data visualization tool for malaria research analytics.<br>
-          <strong>Tech stack:</strong> Python, Pandas, Matplotlib.  
-          <a href="https://github.com/MIKE2634">View on GitHub</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills">
-        <li>Python</li>
-        <li>Java</li>
-        <li>C</li>
-        <li>Laravel</li>
-        <li>Django</li>
-        <li>WordPress</li>
-        <li>Machine Learning</li>
-        <li>MySQL</li>
-        <li>Cybersecurity</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-    </section>
-
-    <!-- Achievements -->
-    <section id="achievements">
-      <h2>Achievements & Certifications</h2>
-      <ul>
-        <li>Artificial Intelligence – IBM (2025)</li>
-        <li>ICT Support Recognition Award – Tenri Hospital (2024)</li>
-        <li>Certificate in Machine Learning – Coursera (2024)</li>
-      </ul>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials">
-      <h2>Testimonials</h2>
-      <blockquote>
-        "Michael is a highly dedicated and skilled developer."  
-        <cite> – William Mugo, ICT Officer</cite>
-      </blockquote>
-    </section>
-
-    <!-- References -->
-    <section id="references">
-      <h2>References</h2>
-      <ul>
-        <li><strong>William Mugo</strong> – ICT Officer, Tenri Children Hospital – Tel: +254 700 111 222</li>
-        <li><strong>Charles Ondere</strong> – Doctor, Aghakan Hospital Mombasa -Tel: +254 790 522 575</li>
-        <li><strong>Joseph Minati</strong> – Doctor, Jaramogi Hospital Kisumu, - Tel: +254 715 895 154</li>
-      </ul>
-    </section>
-  </main>
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer>
-    <p>© 2025 Michael Otieno Omondi. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          Michael<span>Omondi</span>
+        </div>
+        <p>Computer Scientist | Software Developer | AI Enthusiast</p>
+        <div class="social-links">
+          <a href="https://linkedin.com/in/michael-omondi-081591260" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/MIKE2634" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:omoshmichael2000@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Michael Otieno Omondi. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+      mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+      });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 100) {
+        header.style.padding = '0';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.padding = '10px 0';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      }
+    });
+    
+    // Portfolio filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const filterValue = btn.getAttribute('data-filter');
+        
+        portfolioItems.forEach(item => {
+          const categories = item.getAttribute('data-category').split(' ');
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
