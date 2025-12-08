@@ -750,7 +750,7 @@
             <p><strong>Client:</strong> Equitax Africa - A financial services company specializing in asset financing and loan services for individuals and SMEs.</p>
             <p><strong>Project Description:</strong> Developed a comprehensive business website to showcase their asset acquisition services including logbook financing, asset leasing, and business loans. The platform serves as a digital hub for client acquisition, service information, and lead generation.</p>
             <p><strong>Key Features:</strong> Service pages, loan calculators, client testimonials, application forms, mobile-responsive design, SEO optimization.</p>
-            <p><strong>Stack Used:</strong> PHP,wordpress,Elementor,astra theme.</p>
+            <p><strong>Stack Used:</strong> PHP, WordPress, Elementor, Astra theme.</p>
             <div class="portfolio-tags">
               <span>WordPress</span>
               <span>Business Website</span>
@@ -796,7 +796,7 @@
             <p><strong>Key Features:</strong> Project gallery, service descriptions, team profiles, client portfolio, contact forms, mobile optimization, fast loading times.</p>
             <div class="portfolio-tags">
               <span>WordPress</span>
-              <span>Elementor pro</span>
+              <span>Elementor Pro</span>
               <span>Business Website</span>
               <span>Project Portfolio</span>
               <span>Engineering</span>
@@ -932,7 +932,7 @@
         <!-- Contact Form -->
         <div class="contact-form-container">
           <h3>Send Me a Message</h3>
-          <form id="contactForm" class="contact-form" action="https://formspree.io/f/your-form-id-here" method="POST">
+          <form id="contactForm" class="contact-form" action="https://formspree.io/f/mvgebadn" method="POST">
             <div class="form-group">
               <label for="name">Full Name *</label>
               <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
@@ -965,9 +965,9 @@
           </form>
           
           <div class="form-note">
-            <p><i class="fas fa-info-circle"></i> Using Formspree for reliable email delivery. Works on all devices.</p>
+            <p><i class="fas fa-check-circle"></i> Formspree integration active - Messages will be sent directly to your email</p>
             <p style="margin-top: 10px; font-size: 0.85rem;">
-              <strong>Note:</strong> "https://formspree.io/f/mvgebadn">
+              <strong>Note:</strong> You'll receive submissions at the email you configured in Formspree
             </p>
           </div>
         </div>
@@ -1083,10 +1083,14 @@
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
+        // Clear previous status messages
+        formStatus.className = 'form-status';
+        formStatus.style.display = 'none';
+        
         try {
           const formData = new FormData(this);
           
-          // If you're not using Formspree, you can replace this with your own endpoint
+          // Send to Formspree
           const response = await fetch(this.action, {
             method: 'POST',
             body: formData,
@@ -1097,26 +1101,35 @@
           
           if (response.ok) {
             // Success
-            formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+            formStatus.textContent = '✅ Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
             formStatus.className = 'form-status success';
+            formStatus.style.display = 'block';
             contactForm.reset();
+            
+            // Scroll to status message
+            formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           } else {
             // Error from Formspree
-            throw new Error('Form submission failed');
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Form submission failed');
           }
         } catch (error) {
           // Network error or Formspree error
-          formStatus.textContent = 'Oops! There was a problem sending your message. Please try again or email me directly at omoshmichael2000@gmail.com';
+          formStatus.textContent = '❌ Oops! There was a problem sending your message. Please try again or email me directly at omoshmichael2000@gmail.com';
           formStatus.className = 'form-status error';
+          formStatus.style.display = 'block';
+          
+          // Scroll to status message
+          formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } finally {
           // Re-enable submit button
           submitBtn.innerHTML = originalText;
           submitBtn.disabled = false;
           
-          // Auto-hide status message after 10 seconds
+          // Auto-hide status message after 15 seconds
           setTimeout(() => {
             formStatus.style.display = 'none';
-          }, 10000);
+          }, 15000);
         }
       });
     }
@@ -1128,6 +1141,25 @@
         // The form is now the primary contact method
       });
     });
+    
+    // Auto-fill subject when typing in message
+    const messageField = document.getElementById('message');
+    const subjectField = document.getElementById('subject');
+    
+    if (messageField && subjectField) {
+      messageField.addEventListener('input', function() {
+        const message = this.value.toLowerCase();
+        
+        // Auto-detect subject based on message content
+        if (message.includes('hire') || message.includes('job') || message.includes('employment')) {
+          subjectField.value = 'Job Opportunity';
+        } else if (message.includes('project') || message.includes('work') || message.includes('collaboration')) {
+          subjectField.value = 'Project Collaboration';
+        } else if (message.includes('question') || message.includes('help')) {
+          subjectField.value = 'General Inquiry';
+        }
+      });
+    }
   </script>
 </body>
 </html>
