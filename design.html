@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Services - Crafting Digital Experiences</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --secondary: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius: 10px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f3ff;
+            background-image: linear-gradient(to bottom right, #f5f3ff, #ede9fe);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(124, 58, 237, 0.2);
+            z-index: -1;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(124, 58, 237, 0.25);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        /* Services Section */
+        .section-title {
+            font-size: 2rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-card h3 i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f1f1;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-features li i {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Design Tools Section */
+        .tools-section {
+            margin-bottom: 60px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tool-card h4 i {
+            color: var(--secondary);
+        }
+        
+        .tool-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .tool-category {
+            display: inline-block;
+            background-color: rgba(124, 58, 237, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        /* Collaboration Section */
+        .collab-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow);
+        }
+        
+        .collab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .collab-card {
+            background: #faf5ff;
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid #e9d5ff;
+            transition: var(--transition);
+        }
+        
+        .collab-card:hover {
+            background: white;
+            border-color: var(--primary-light);
+            transform: translateY(-5px);
+        }
+        
+        .collab-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .collab-card h4 i {
+            color: var(--secondary);
+        }
+        
+        .collab-card p {
+            color: var(--gray);
+        }
+        
+        /* Design Principles Section */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .principle-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .principle-card:hover {
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .principle-card:hover h4,
+        .principle-card:hover p {
+            color: white;
+        }
+        
+        .principle-icon {
+            background-color: rgba(124, 58, 237, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .principle-card:hover .principle-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .principle-card h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .principle-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-tagline {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #d1d5db;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #d1d5db;
+        }
+        
+        .copyright {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 30px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid, .tools-grid, .collab-grid, .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .collab-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-palette"></i>
+                <span>DesignCraft Studio</span>
+            </div>
+            <p class="tagline">Crafting modern, responsive website designs that strengthen your brand, engage visitors, and deliver exceptional user experiences</p>
+        </header>
+        
+        <main>
+            <section class="hero">
+                <h1>Modern <span class="hero-highlight">Web Design</span> Services</h1>
+                <p>I design modern, responsive websites that strengthen your brand, engage visitors, and improve usability. Services include layout planning, intuitive UI design, clean aesthetics, and full website refinement from start to finish.</p>
+                <button class="cta-button" id="readMoreBtn">
+                    <span>Explore Design Services</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </section>
+            
+            <section id="services">
+                <h2 class="section-title">My Web Design Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3><i class="fas fa-sitemap"></i> Layout Planning & Strategy</h3>
+                        <p>Strategic website structure and content organization for optimal user flow and conversion.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> User journey mapping & personas</li>
+                            <li><i class="fas fa-check-circle"></i> Information architecture planning</li>
+                            <li><i class="fas fa-check-circle"></i> Wireframing & low-fidelity prototypes</li>
+                            <li><i class="fas fa-check-circle"></i> Content hierarchy & site mapping</li>
+                            <li><i class="fas fa-check-circle"></i> Competitor analysis & industry research</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3><i class="fas fa-mouse-pointer"></i> Intuitive UI/UX Design</h3>
+                        <p>Creating user interfaces that are not only beautiful but also intuitive and easy to navigate.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Interactive element design</li>
+                            <li><i class="fas fa-check-circle"></i> Consistent design systems</li>
+                            <li><i class="fas fa-check-circle"></i> Accessibility-focused design (WCAG)</li>
+                            <li><i class="fas fa-check-circle"></i> Micro-interactions & animations</li>
+                            <li><i class="fas fa-check-circle"></i> User testing & feedback integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3><i class="fas fa-brush"></i> Visual Design & Aesthetics</h3>
+                        <p>Visual design that reflects your brand identity while prioritizing clarity and user experience.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Color theory & psychology application</li>
+                            <li><i class="fas fa-check-circle"></i> Typography selection & pairing</li>
+                            <li><i class="fas fa-check-circle"></i> Visual hierarchy & balance</li>
+                            <li><i class="fas fa-check-circle"></i> Brand consistency across all pages</li>
+                            <li><i class="fas fa-check-circle"></i> High-fidelity mockups & prototypes</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="tools-section">
+                <h2 class="section-title">Design Tools & Software</h2>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h4><i class="fab fa-figma"></i> Figma</h4>
+                        <p>Primary tool for collaborative interface design, prototyping, and design system creation. Allows real-time collaboration and smooth design handoff.</p>
+                        <span class="tool-category">UI/UX Design</span>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4><i class="fas fa-bezier-curve"></i> Adobe Creative Suite</h4>
+                        <p>Using Photoshop for image editing, Illustrator for vector graphics and logos, and Adobe XD for prototyping and design workflows.</p>
+                        <span class="tool-category">Visual Design</span>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4><i class="fas fa-eye-dropper"></i> Color & Contrast Tools</h4>
+                        <p>Coolors, Adobe Color, and Contrast Checker for creating accessible, harmonious color palettes that meet WCAG standards.</p>
+                        <span class="tool-category">Accessibility</span>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4><i class="fas fa-font"></i> Typography Tools</h4>
+                        <p>Google Fonts, Adobe Fonts, and Typewolf for selecting and pairing typefaces that enhance readability and brand personality.</p>
+                        <span class="tool-category">Typography</span>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4><i class="fas fa-cube"></i> 3D & Illustration</h4>
+                        <p>Blender for 3D elements and custom illustrations to create unique visual assets that make your website stand out.</p>
+                        <span class="tool-category">Visual Assets</span>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h4><i class="fas fa-mobile-alt"></i> Responsive Design Tools</h4>
+                        <p>Built-in responsive design testing in Figma and Adobe XD to ensure designs work perfectly across all device sizes.</p>
+                        <span class="tool-category">Responsive Design</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="collab-section">
+                <h2 class="section-title">Collaboration & Research Process</h2>
+                <p style="text-align: center; color: var(--gray); max-width: 800px; margin: 0 auto 20px;">Successful web design begins with thorough research and close collaboration. Here's how we work together:</p>
+                
+                <div class="collab-grid">
+                    <div class="collab-card">
+                        <h4><i class="fas fa-comments"></i> Discovery Sessions</h4>
+                        <p>Initial meetings to understand your business, goals, target audience, and vision for the project.</p>
+                    </div>
+                    
+                    <div class="collab-card">
+                        <h4><i class="fas fa-search"></i> Competitive Analysis</h4>
+                        <p>Researching competitors and industry trends to identify opportunities and best practices.</p>
+                    </div>
+                    
+                    <div class="collab-card">
+                        <h4><i class="fas fa-users"></i> User Research</h4>
+                        <p>Creating user personas and conducting research to ensure the design meets real user needs.</p>
+                    </div>
+                    
+                    <div class="collab-card">
+                        <h4><i class="fas fa-sync-alt"></i> Iterative Feedback</h4>
+                        <p>Regular review sessions and feedback loops to refine designs throughout the process.</p>
+                    </div>
+                    
+                    <div class="collab-card">
+                        <h4><i class="fas fa-handshake"></i> Client Collaboration Tools</h4>
+                        <p>Using Figma comments, shared prototypes, and collaborative boards for transparent communication.</p>
+                    </div>
+                    
+                    <div class="collab-card">
+                        <h4><i class="fas fa-clipboard-check"></i> Design Handoff</h4>
+                        <p>Preparing comprehensive design specifications, assets, and documentation for development teams.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="principles">
+                <h2 class="section-title">Core Design Principles</h2>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile-First</h4>
+                        <p>Designing for mobile devices first, then scaling up to larger screens for optimal experience everywhere.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h4>Accessibility</h4>
+                        <p>Ensuring designs are usable by people with disabilities, meeting WCAG 2.1 standards.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Performance</h4>
+                        <p>Creating designs that load quickly and perform well, considering image optimization and efficient layouts.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Visual Hierarchy</h4>
+                        <p>Guiding user attention through size, color, contrast, and spacing to prioritize important content.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h4>Consistency</h4>
+                        <p>Maintaining consistent design patterns, colors, and typography throughout the entire website.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h4>User-Centered</h4>
+                        <p>Placing user needs, behaviors, and preferences at the center of all design decisions.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          Michael<span> Omondi</span>
+        </div>
+        <p>Computer Scientist | Software Developer | AI Enthusiast</p>
+        
+        <!-- Quick Links in Footer -->
+        <div class="footer-links">
+          <a href="#home" data-section="home">Home</a>
+          <a href="#about" data-section="about">About</a>
+          <a href="#services" data-section="services">Services</a>
+          <a href="#portfolio" data-section="portfolio">Portfolio</a>
+          <a href="#contact" data-section="contact">Contact</a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://linkedin.com/in/michael-omondi-081591260" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/MIKE2634" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#contact-form-container"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Michael Otieno Omondi. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+        // Interactive elements for the design-focused presentation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Read More button scroll functionality
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            readMoreBtn.addEventListener('click', () => {
+                document.getElementById('services').scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Add a visual feedback to the button
+                readMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Exploring Design Services</span>';
+                readMoreBtn.style.backgroundColor = '#f59e0b';
+                
+                setTimeout(() => {
+                    readMoreBtn.innerHTML = '<span>Explore Design Services</span> <i class="fas fa-arrow-down"></i>';
+                    readMoreBtn.style.backgroundColor = '';
+                }, 1500);
+            });
+            
+            // Add hover effect to service cards
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('h3 i');
+                    icon.style.transform = 'scale(1.3) rotate(10deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('h3 i');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            // Add click animation to tool cards
+            const toolCards = document.querySelectorAll('.tool-card');
+            toolCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe service cards
+            serviceCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Observe tool cards with staggered delay
+            toolCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+            
+            // Observe collaboration cards
+            const collabCards = document.querySelectorAll('.collab-card');
+            collabCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+            
+            // Observe principle cards
+            const principleCards = document.querySelectorAll('.principle-card');
+            principleCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+            
+            // Add a subtle animation to the hero highlight
+            const heroHighlight = document.querySelector('.hero-highlight');
+            setInterval(() => {
+                heroHighlight.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    heroHighlight.style.transform = 'scale(1)';
+                }, 500);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
